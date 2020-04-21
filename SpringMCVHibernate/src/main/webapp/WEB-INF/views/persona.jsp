@@ -77,12 +77,12 @@
 	<c:if test="${!empty listaPersone }">
 		<table class="tg">
 			<tr>
-				<th whidt="40">ID</th>
-				<th whidt="100">Nome</th>
-				<th whidt="100">Cognome</th>
-				<th whidt="120">Residenza</th>
-				<th whidt="60">Modifica</th>
-				<th whidt="60">Elimina</th>
+				<th>ID</th>
+				<th>Nome</th>
+				<th>Cognome</th>
+				<th>Residenza</th>
+				<th>Modifica</th>
+				<th>Elimina</th>
 			</tr>
 			<c:forEach items="${listaPersone }" var="persona">
 				<tr>
