@@ -6,16 +6,23 @@
 <html>
 <head>
 <title>Persona</title>
-<!-- qui ci manca lo style, proviamo ad usare bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
+<link href="https://unpkg.com/browse/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
 <body>
-	<h1>
+<div type="container">
+	<div class="row">
+		<div class="col-md-4">
+		<h1>
 		Aggiungi una persona
 	</h1>
-<c:url var="addAction" value="/persona/add" />
+		<c:url var="addAction" value="/persona/add" />
 	
 	<form:form action="${addAction}" commandName="persona">
-		<table>
+		<table border="1" class="table table-striped">
 			<c:if test="${!empty persona.nome }">
 				<tr>
 					<td>
@@ -61,7 +68,10 @@
 			<tr>
 				<td colspan="2">
 					<c:if test="${!empty persona.nome }">
-						<input type="submit" value="<spring:message text="Modifica" />" />						
+						<button class="btn btn-outline-warning" value="<spring:message text="Modifica" />" type="submit">
+							<span class="spinner-grow spinner-grow-sm"></span>
+							Modifica..
+						</button>						
 					</c:if>
 					<c:if test="${empty persona.nome }">
 						<input type="submit" value="<spring:message text="Aggiungi" />" />
@@ -70,12 +80,16 @@
 			</tr>
 		</table>
 	</form:form>
-	<br />
-	<h3>
-		Lista DB
-	</h3>
+		</div>
+		<div class="col-md-8">
+		<h1>
+		Persone presenti
+	</h1>
 	<c:if test="${!empty listaPersone }">
-		<table class="tg">
+		<table class="table table-hover">
+			<tr>
+				<th class="table-dark">Lista DB</th>
+			</tr>
 			<tr>
 				<th>ID</th>
 				<th>Nome</th>
@@ -96,5 +110,9 @@
 			</c:forEach>
 		</table>
 	</c:if>
+		</div>
+	</div>
+	<br />
+</div>
 </body>
 </html>
